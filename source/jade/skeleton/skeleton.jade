@@ -1,0 +1,30 @@
+doctype html
+html.no-js(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='x-ua-compatible', content='ie=edge')
+		block title
+			title Frontend Kickstarter v.1.0.0
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='apple-touch-icon', href='apple-touch-icon.png')
+		link(rel='stylesheet', href='assets/css/main.css')
+	body
+
+		include ../layout/_header.jade
+		
+		block content
+
+		include ../layout/_footer.jade
+
+
+		script(src='https://code.jquery.com/jquery-1.12.4.min.js')
+		script.
+			window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\\/script>')
+		script(src='assets/js/plugins.js')
+		script(src='assets/js/main.js')
+
+		// Google Analytics: change UA-XXXXX-Y to be your site's ID.
+		script.
+			window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+			ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+		script(src='https://www.google-analytics.com/analytics.js', async='', defer='')
