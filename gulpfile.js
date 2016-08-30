@@ -1,56 +1,55 @@
 'use strict';
 
-import gulp          from 'gulp';
-import sass          from 'gulp-sass';
-import autoprefixer  from 'gulp-autoprefixer';
-import browserSync   from 'browser-sync';
-import babel         from 'gulp-babel';
-import concat        from 'gulp-concat';
-import jade          from 'gulp-jade';
-import rename        from 'gulp-rename';
-import uglifyCSS     from 'gulp-uglifycss';
-import uglifyJs      from 'gulp-uglify';
-import plumber       from 'gulp-plumber';
-import notify        from 'gulp-notify';
-import sourcemap     from 'gulp-sourcemaps';
-import jshint        from 'gulp-jshint';
-import stylish       from 'jshint-stylish';
-import watch         from 'gulp-watch';
-import optimizeImage from 'gulp-imagemin';
-import ignore        from 'gulp-ignore';
-import rimraf        from 'gulp-rimraf';
-import zip           from 'gulp-zip';
-import runSequence   from 'run-sequence';
+var gulp          = require( 'gulp' ),
+	sass          = require( 'gulp-sass' ),
+	autoprefixer  = require( 'gulp-autoprefixer' ),
+	browserSync   = require( 'browser-sync' ).create(),
+	babel         = require( 'gulp-babel' ),
+	concat        = require( 'gulp-concat' ),
+	jade          = require( 'gulp-jade' ),
+	rename        = require( 'gulp-rename' ),
+	uglifyCSS     = require( 'gulp-uglifycss' ),
+	uglifyJs      = require( 'gulp-uglify' ),
+	plumber       = require( 'gulp-plumber' ),
+	notify        = require( 'gulp-notify' ),
+	sourcemap     = require( 'gulp-sourcemaps' ),
+	jshint        = require( 'gulp-jshint' ),
+	stylish       = require( 'jshint-stylish' ),
+	watch         = require( 'gulp-watch' ),
+	optimizeImage = require( 'gulp-imagemin' ),
+	ignore        = require( 'gulp-ignore' ),
+	rimraf        = require( 'gulp-rimraf' ),
+	zip           = require( 'gulp-zip' ),
+	runSequence   = require( 'run-sequence' );
 
-const settings = {
+var settings = {
 	projectName : 'frontend-kickstarter',
 	version     : '1.0.0',
 	srcDir      : 'source',
 	destDir     : 'dist'
 };
 
-gulp.task( 'jade', () =>  {
+gulp.task( 'jade', function ()  {
 
 	return gulp.src( `./${settings.srcDir}/jade/*.jade` )
 				.pipe( plumber() )
 				.pipe( jade({ pretty: '\t' }) )
+				.on( 'error', function (err) {
+					console.log(err);
+				} )
 				.on('error', notify.onError({
 					title   : 'Sob sob!!',
 					message : 'Jade error bro',
 					icon    : '',
 					sound   : 'Basso'
 			   	}))
-				.on( 'error', function( err ){
-			   		console.log( err );
-			   		this.emit( 'end' );
-			   	} )
 				.pipe( gulp.dest( `./${settings.destDir}` ) );
 
 } );
 
-gulp.task( 'style', () =>  {
+gulp.task( 'style', function ()  {
 
-	return gulp.src( `./${settings.srcDir}/sass/*.scss` )
+	return gulp.src( `./${settings.srcDir}/sass/main.scss` )
 				.pipe( plumber() )
 				.pipe( sourcemap.init() )
 				.pipe( sass().on('error',sass.logError) )
@@ -60,7 +59,7 @@ gulp.task( 'style', () =>  {
 					icon    : '',
 					sound   : 'Basso'
 			   	}))
-				.on('error', () => { this.emit( 'end' ) })
+				.on('error', function () { this.emit( 'end' ) })
 				.pipe( autoprefixer({browsers: "last 3 version"}) )
 				.pipe( sourcemap.write( '.' ) )
 				.pipe( gulp.dest( `./${settings.destDir}/assets/css/` ) )
@@ -72,9 +71,9 @@ gulp.task( 'style', () =>  {
 } );
 
 
-gulp.task( 'script', () =>  {
+gulp.task( 'script', function ()  {
 
-	return gulp.src( `./${settings.srcDir}/js/*.js` )
+	return gulp.src( `./${settings.srcDir}/js/main.js` )
 				.pipe( plumber() )
 				.pipe( jshint()  )
 				.pipe( jshint.reporter( stylish ) )
@@ -88,7 +87,7 @@ gulp.task( 'script', () =>  {
 
 });
 
-gulp.task( 'script-plugins', () =>  {
+gulp.task( 'script-plugins', function ()  {
 
 	return gulp.src( `./${settings.srcDir}/js/plugins/**/*.js` )
 				.pipe( concat( 'plugins.js' ) )
@@ -101,7 +100,7 @@ gulp.task( 'script-plugins', () =>  {
 
 } );
 
-gulp.task( 'image', () => {
+gulp.task( 'image', function () {
 
 	return gulp.src( `./${settings.destDir}/assets/images/*` )
 				.pipe( optimizeImage() )
@@ -109,13 +108,13 @@ gulp.task( 'image', () => {
 
 } );
 
-gulp.task( 'cleanup', () => {
+gulp.task( 'cleanup', function () {
 	return gulp.src( ['**/.sass-cache','**./DS_Store'], {read:false} )
 				.pipe( ignore('node_modules/**') )
 				.pipe( rimraf({ force: true }) );
 } );
 
-gulp.task( 'build-zip', () => {
+gulp.task( 'build-zip', function () {
 
 	return gulp.src( `./${settings.destDir}/**/` )
 				.pipe( zip( settings.projectName+`-${settings.version}`+'.zip' ) )
@@ -130,13 +129,13 @@ gulp.task( 'build-zip', () => {
 
 });
 
-gulp.task( 'bundle', cb => {
+gulp.task( 'bundle', function(cb) {
 
 	runSequence( 'style', 'script', 'script-plugins', 'image', 'cleanup' , 'build-zip', cb  );
 
 } );
 
-gulp.task( 'watch', () =>  {
+gulp.task( 'watch', function ()  {
 	
 	console.log( "\x1b[31m%s","╔════════════════════════════════════════════════════════════╗" );
 	console.log( "\x1b[31m%s\x1b[34m%s\x1b[0m\x1b[31m%s","║","   ╔═╗╦═╗╔═╗╔╗╔╔╦╗╔═╗╔╗╔╔╦╗                                 ","║");
@@ -158,24 +157,24 @@ gulp.task( 'watch', () =>  {
 		}
 	});
 
-	watch( `./${settings.srcDir}/jade/**/*.jade`, () => {
-		gulp.start( 'jade', () => {			
+	watch( `./${settings.srcDir}/jade/**/*.jade`, function () {
+		gulp.start( 'jade', function () {			
 			browserSync.reload();
 		} );
 	} );
 
-	watch( `./${settings.srcDir}/sass/**/*.scss`, () => {
+	watch( `./${settings.srcDir}/sass/**/*.scss`, function () {
 		gulp.start( 'style' )	;
 	} );
 
-	watch( `./${settings.srcDir}/js/*.js`, () =>  {
-		gulp.start( 'script', () =>  {
+	watch( `./${settings.srcDir}/js/*.js`, function ()  {
+		gulp.start( 'script', function ()  {
 			browserSync.reload();
 		} );
 	} );
 
-	watch( `./${settings.srcDir}/js/plugins/*.js`, () =>  {
-		gulp.start( 'script-plugins', () =>  {
+	watch( `./${settings.srcDir}/js/plugins/*.js`, function ()  {
+		gulp.start( 'script-plugins', function ()  {
 			browserSync.reload();
 		} );
 	} );
