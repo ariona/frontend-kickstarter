@@ -1,7 +1,7 @@
 # Frontend Kickstarter
 ---
 ## Intro
-Frontend Kickstarter ini adalah starting point ketika mengerjakan project-project front-end (slicing PSDtoHTML). Teknologi yang digunkan antara lain: Jade untuk HTML templating, Sass untuk CSS Preprocessor, JS-hint untuk pemeriksaan file JS + Babel jika anda menggunakan syntax ES6\. Semuanya dibundle dalam Gulp sebagai build tools.
+Frontend Kickstarter ini adalah starting point ketika mengerjakan project-project front-end (slicing PSDtoHTML). Teknologi yang digunakan antara lain: Jade untuk HTML templating, Sass untuk CSS Preprocessor, JS-hint untuk pemeriksaan file JS + Babel jika anda menggunakan syntax ES6\. Semuanya dibundle dalam Gulp sebagai build tools.
 
 ## Instalasi
 
