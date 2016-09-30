@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Frontend Kickstarter 1.0</title>
+		<title>Frontend Kickstarter 1.1</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		<link rel="stylesheet" href="assets/css/main.css">
@@ -11,7 +11,7 @@
 	<body>
 		<div class="cover">
 			<div class="intro">
-				<h1 class="intro__title"><span>Frontend</span><span>Kickstarter <sup class="badge">v.1.0</sup></span></h1>
+				<h1 class="intro__title"><span>Frontend</span><span>Kickstarter <sup class="badge">v.1.1</sup></span></h1>
 				<p class="intro__subtitle">by <a href="http://ariona.net">Ariona, Rian</a></p>
 				<div class="intro__detail"><a href="http://github.com/ariona/frontend-kickstarter">Repository</a>/<a href="http://ariona.github.io/frontend-kickstarter">Documentation</a></div>
 			</div>
@@ -19,7 +19,7 @@
 		<div class="content-wrap">
 			<div class="content">
 				<h2>Intro</h2>
-				<p>Frontend Kickstarter ini adalah starting point ketika mengerjakan project-project front-end (slicing PSDtoHTML). Teknologi yang digunakan antara lain: Jade untuk HTML templating, Sass untuk CSS Preprocessor, JS-hint untuk pemeriksaan file JS + Babel jika anda menggunakan syntax ES6. Semuanya dibundle dalam Gulp sebagai build tools.</p>
+				<p>Frontend Kickstarter ini adalah starting point ketika mengerjakan project-project front-end (slicing PSDtoHTML). Teknologi yang digunakan antara lain: pug untuk HTML templating, Sass untuk CSS Preprocessor, JS-hint untuk pemeriksaan file JS + Babel jika anda menggunakan syntax ES6. Semuanya dibundle dalam Gulp sebagai build tools.</p>
 				<h2>Instalasi</h2>
 				<ol>
 					<li>
@@ -55,7 +55,7 @@
     |_ css
     |_ images
 source
- |_ jade
+ |_ pug
  |_ sass
  |_ js
  |  |_ plugins
@@ -64,9 +64,9 @@ source
 				<p>Setiap file source yang telah diproses akan masuk ke dalam folder ini. Pada dasarnya folder inilah yang akan kita deliver ke client.</p>
 				<p>Khusus untuk assets berupa image, langsung dimasukkan kedalam folder /dist/images (tidak ke dalam folder source), untuk menghemat space.</p>
 				<h3>2. Folder <code>source</code></h3>
-				<p>Folder ini berisi source-source code sass, js, dan jade. Semuanya masuk ke masing-masing folder sesuai namanya.</p>
-				<h3>3. Folder <code>source/jade/</code></h3>
-				<p>Folder ini digunakan, jika anda ingin menggunakan jade sebagai HTML templating, setiap file jade yang ada diroot folder ini, akan dicompile menjadi file HTML. So untuk file2 HTML yang bersifat partial dalem folder gak akan dicompile menjadi file HTML.</p>
+				<p>Folder ini berisi source-source code sass, js, dan pug. Semuanya masuk ke masing-masing folder sesuai namanya.</p>
+				<h3>3. Folder <code>source/pug/</code></h3>
+				<p>Folder ini digunakan, jika anda ingin menggunakan pug sebagai HTML templating, setiap file pug yang ada diroot folder ini, akan dicompile menjadi file HTML. So untuk file2 HTML yang bersifat partial dalem folder gak akan dicompile menjadi file HTML.</p>
 				<h3>4. Folder <code>source/js/</code></h3>
 				<p>Untuk Semua plugins JS/jQuery dimasukkan ke dalam folder ini. Nantinya semua file yang ada dalam folder ini akan disatukan, di compress dan dimasukkan ke dalam file <code>dist/assets/js/plugins.js</code></p>
 				<h3>5. Folder <code>source/sass</code></h3>
@@ -75,7 +75,7 @@ source
 				<p>Apa yang terjadi dibalik proses building ini adalah:</p>
 				<ul>
 					<li>
-						<p>Integrasi BrowserSync memungkinkan kita untuk bekerja tanpa harus merefresh browser secara manual, karena setiap perubahan pada file source kita akan secara otomatis diinject pada halaman web (untuk CSS) dan reload ketika file js/jade berubah.</p>
+						<p>Integrasi BrowserSync memungkinkan kita untuk bekerja tanpa harus merefresh browser secara manual, karena setiap perubahan pada file source kita akan secara otomatis diinject pada halaman web (untuk CSS) dan reload ketika file js/pug berubah.</p>
 					</li>
 					<li>
 						<p>Kompilasi file sass disertai dengan autoprefixer untuk penambahan prefix secara otomatis.</p>

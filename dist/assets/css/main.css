@@ -40,15 +40,12 @@ canvas.loaded {
   background-color: #222;
   background-image: linear-gradient(-45deg, #002025, #3f3251);
   min-height: 100vh;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
 
 .intro {
   text-align: center;
@@ -58,17 +55,13 @@ canvas.loaded {
   font-family: Slabo, monospace; }
   .intro__title, .intro__subtitle, .intro__detail {
     opacity: 0;
-    -webkit-transform: translateY(100px);
-        -ms-transform: translateY(100px);
-            transform: translateY(100px);
-    transition: opacity 1s ease, -webkit-transform 1s cubic-bezier(0.9, 0.27, 0.15, 0.95);
-    transition: transform 1s cubic-bezier(0.9, 0.27, 0.15, 0.95), opacity 1s ease;
-    transition: transform 1s cubic-bezier(0.9, 0.27, 0.15, 0.95), opacity 1s ease, -webkit-transform 1s cubic-bezier(0.9, 0.27, 0.15, 0.95); }
+    -ms-transform: translateY(100px);
+        transform: translateY(100px);
+    transition: transform 1s cubic-bezier(0.9, 0.27, 0.15, 0.95), opacity 1s ease; }
     .loaded .intro__title, .loaded .intro__subtitle, .loaded .intro__detail {
       opacity: 1;
-      -webkit-transform: translateY(0);
-          -ms-transform: translateY(0);
-              transform: translateY(0); }
+      -ms-transform: translateY(0);
+          transform: translateY(0); }
   .intro__title {
     font-weight: normal;
     font-size: 4em;

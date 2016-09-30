@@ -1,7 +1,7 @@
 # Frontend Kickstarter
 ---
 ## Intro
-Frontend Kickstarter ini adalah starting point ketika mengerjakan project-project front-end (slicing PSDtoHTML). Teknologi yang digunakan antara lain: Jade untuk HTML templating, Sass untuk CSS Preprocessor, JS-hint untuk pemeriksaan file JS + Babel jika anda menggunakan syntax ES6\. Semuanya dibundle dalam Gulp sebagai build tools.
+Frontend Kickstarter ini adalah starting point ketika mengerjakan project-project front-end (slicing PSDtoHTML). Teknologi yang digunakan antara lain: pug untuk HTML templating, Sass untuk CSS Preprocessor, JS-hint untuk pemeriksaan file JS + Babel jika anda menggunakan syntax ES6\. Semuanya dibundle dalam Gulp sebagai build tools.
 
 ## Instalasi
 
@@ -16,7 +16,7 @@ Frontend Kickstarter ini adalah starting point ketika mengerjakan project-projec
     ```js
     var settings = {
     	projectName : 'frontend-kickstarter',
-    	version     : '1.0.0',
+    	version     : '1.1.0',
     	srcDir      : 'source',
     	destDir     : 'dist'
     };
@@ -37,7 +37,7 @@ dist
     |_ css
     |_ images
 source
- |_ jade
+ |_ pug
  |_ sass
  |_ js
  |  |_ plugins
@@ -52,11 +52,11 @@ Khusus untuk assets berupa image, langsung dimasukkan kedalam folder /dist/image
 
 ### 2\. Folder `source`
 
-Folder ini berisi source-source code sass, js, dan jade. Semuanya masuk ke masing-masing folder sesuai namanya.
+Folder ini berisi source-source code sass, js, dan pug. Semuanya masuk ke masing-masing folder sesuai namanya.
 
-### 3\. Folder `source/jade/`
+### 3\. Folder `source/pug/`
 
-Folder ini digunakan, jika anda ingin menggunakan jade sebagai HTML templating, setiap file jade yang ada diroot folder ini, akan dicompile menjadi file HTML. So untuk file2 HTML yang bersifat partial dalem folder gak akan dicompile menjadi file HTML.
+Folder ini digunakan, jika anda ingin menggunakan pug sebagai HTML templating, setiap file pug yang ada diroot folder ini, akan dicompile menjadi file HTML. So untuk file2 HTML yang bersifat partial dalem folder gak akan dicompile menjadi file HTML.
 
 ### 4\. Folder `source/js/`
 
@@ -70,7 +70,7 @@ File utama Sass adalah main.scss, jadi hanya file ini yang akan di monitor.
 
 Apa yang terjadi dibalik proses building ini adalah:
 
-*   Integrasi BrowserSync memungkinkan kita untuk bekerja tanpa harus merefresh browser secara manual, karena setiap perubahan pada file source kita akan secara otomatis diinject pada halaman web (untuk CSS) dan reload ketika file js/jade berubah.
+*   Integrasi BrowserSync memungkinkan kita untuk bekerja tanpa harus merefresh browser secara manual, karena setiap perubahan pada file source kita akan secara otomatis diinject pada halaman web (untuk CSS) dan reload ketika file js/pug berubah.
 
 *   Kompilasi file sass disertai dengan autoprefixer untuk penambahan prefix secara otomatis.
 
