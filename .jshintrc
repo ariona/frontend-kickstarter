@@ -1,0 +1,23 @@
+	{
+	/*
+	* ENVIRONMENTS
+	*/
+	"browser"   : true,
+	"jquery"    : true,
+	"node"      : true,
+	"esversion" : 6,
+	
+	/*
+	* ENFORCING OPTIONS
+	*/
+	"camelcase" : true,
+	"eqeqeq"    : true,
+	"eqnull"    : true,
+	"latedef"   : true,
+	"newcap"    : true,
+	"quotmark"  : "single",
+	"trailing"  : true,
+	"undef"     : true,
+	"unused"    : true,
+	"strict"    : true
+}

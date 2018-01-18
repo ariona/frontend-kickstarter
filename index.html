@@ -1,0 +1,85 @@
+<!-- 
+╔════════════════════════════════════════════════════════════╗
+║   ╔═╗╦═╗╔═╗╔╗╔╔╦╗╔═╗╔╗╔╔╦╗                                 ║
+║   ╠╣ ╠╦╝║ ║║║║ ║ ║╣ ║║║ ║║                                 ║
+║   ╚  ╩╚═╚═╝╝╚╝ ╩ ╚═╝╝╚╝═╩╝                                 ║
+║   ╦╔═╦╔═╗╦╔═╔═╗╔╦╗╔═╗╦═╗╔╦╗╔═╗╦═╗                          ║
+║   ╠╩╗║║  ╠╩╗╚═╗ ║ ╠═╣╠╦╝ ║ ║╣ ╠╦╝                          ║
+║   ╩ ╩╩╚═╝╩ ╩╚═╝ ╩ ╩ ╩╩╚═ ╩ ╚═╝╩╚═ v.2.0.0                  ║
+╠════════════════════════════════════════════════════════════╣
+║   Author : Ariona, Rian                                    ║
+║   URL    : studio.ariona.net                               ║
+║   Mail   : studio@ariona.net                               ║
+║   Source : http://ariona.github.com/frontend-kickstarter   ║
+╚════════════════════════════════════════════════════════════╝	
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Frontend Kickstarter v2</title>
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css">
+</head>
+
+<body>
+	<div class="max-width-3 mx-auto">
+		<header class="hero">
+			<div class="mb3">
+				<h1 class="mb0">Frontend Kickstarter <sup>v2</sup></h1>
+				<small><em>by <a href="https://ariona.net">Ariona, Rian</a></em></small>
+			</div>
+
+			<div class="flex items-center">
+				<img src="assets/images/logo-gulp.svg" alt="" width=120>
+				<span class="mx2">➕</span>
+				<img src="assets/images/logo-postcss.svg" alt="PostCSS Logo" width=90>
+				<span class="mx2">➕</span>
+				<img src="assets/images/logo-webpack.svg" alt="Webpack Logo" width=100>
+			</div>
+		</header>
+		<main>
+			<h2>Intro</h2>
+			<p>Versi 2 ini adalah <em>rewrite</em> dari versi 1 serta penggantian stack yang digunakan untuk <em>processing source code</em> CSS &amp; Javascript. Repository ini adalah <em>kickstarter</em> yang saya gunakan untuk setiap project PSD to HTML. Jika ingin tahu versi satu silahkan buka <a href="https://github.com/ariona/frontend-kickstarter/tree/v1">branch v1</a></p>
+
+			<h2>Instalasi</h2>
+			<p>Clone Repository</p>
+			<pre>git clone http://github.com/ariona/frontend-kickstarter nama-project-anda</pre>
+			<p>Install NPM Library</p>
+			<pre>npm install
+# atau
+yarn install</pre>
+			<p>Mulai dev task</p>
+			<pre>npm run dev</pre>
+			
+			<h2>Kenapa PostCSS?</h2>
+			<p>Jika sebelumnya saya menggunakan SASS sebagai Preprocessor, kali saya lebih tertarik untuk menggunakan PostCSS dan bermigrasi sepenuhnya dari SASS.</p>
+
+			<p>Jadi bagaimana dengan fitur-fitur SASS yang selama ini mempermudah kita menulis CSS 😭? Tenang semua tergantikan dengan bantuan plugin PostCSS. Jadi meskipun menggunakan pure CSS tapi masih bisa menggunakan variable (Custom Properties), Nesting &amp; lainnya</p>
+			
+			<h2>Kenapa Gulp &amp; Webpack?</h2>
+			<p>Gulp &amp; Webpack itu dua tools yang berbeda, Gulp untuk task runner dan webpack sebagai module bundler javascript.</p>
+			<p>Karena sudah terbiasa dengan penulisan syntax ES6 ketika mengerjakan project React Native, kebiasaan ini jadi terbawa ketika menulis javascript untuk project non-react.</p>
+
+			<h2>Usefull PostCSS Libraries</h2>
+			<ul>
+				<li><a href="https://github.com/peterramsing/lost">lost</a>, Plugin untuk membuat layout grid</li>
+				<li><a href="http://cssnext.io/">postcss-cssnext</a>, Plugin agar kita bisa menggunakan syntax CSS terbaru tanpa harus memusingkan compatibility karena pada akhirnya akan dicompile ke CSS biasa. Ketika semua sudah jadi standar kita sudah pake standar tersebut sejak lama 😉</li>
+				<li><a href="https://github.com/postcss/postcss-nested">postcss-nested</a>, Plugin agar kita bisa melakukan nesting rule seperti dalam CSS Preprocessor (SASS/Less)</li>
+				<li><a href="https://github.com/toomuchdesign/postcss-nested-ancestors">postcss-nested-ancestors</a>, Plugin extension untuk postcss-nested agar kita bisa memanggil parent selector</li>
+				<li><a href="https://github.com/jonathantneal/postcss-partial-import">postcss-partial-import</a>, berbeda dengan import CSS, @import ini akan menggabungkan konten dari CSS yang di import</li>
+				<li><a href="https://github.com/ismamz/postcss-utilities">postcss-utilities</a>, Berisi beberapa utility/mixin yang paling sering digunakan, seperti clearfix, css triangle dll.</li>
+			</ul>
+		</main>
+		<footer class="py4">
+			<p>Made with ❤️ in Bandung</p>
+		</footer>
+	</div>
+
+	<script src="assets/js/main.js"></script>
+</body>
+
+</html>
